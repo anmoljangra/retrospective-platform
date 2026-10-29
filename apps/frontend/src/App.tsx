@@ -12,6 +12,7 @@ import { TeamsPage } from './features/teams/TeamsPage';
 import { TeamDetailPage } from './features/teams/TeamDetailPage';
 import { RetrospectivesPage } from './features/retrospectives/RetrospectivesPage';
 import { CreateRetrospectivePage } from './features/retrospectives/CreateRetrospectivePage';
+import { BoardPage } from './features/board/BoardPage';
 
 function LandingPage() {
   return (
@@ -133,6 +134,7 @@ export default function App() {
             <Route path="/teams/:teamId" element={<TeamDetailPage />} />
             <Route path="/retrospectives" element={<RetrospectivesPage />} />
             <Route path="/retrospectives/new" element={<CreateRetrospectivePage />} />
+            <Route path="/retrospectives/:retrospectiveId" element={<BoardPage />} />
             <Route path="/settings/organization" element={<OrganizationSettingsPage />} />
           </Route>
 

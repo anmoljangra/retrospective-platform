@@ -107,23 +107,23 @@
 ---
 
 ## Phase 6: Retrospective Board (Feedback, Voting, Comments)
-- [ ] Define FeedbackCard schema (`id`, `tenantId`, `retrospectiveId`, `columnId`, `authorId`, `content`, `position`)
-- [ ] Define Vote schema (`id`, `tenantId`, `retrospectiveId`, `feedbackCardId`, `userId`)
-- [ ] Define Comment schema (`id`, `tenantId`, `feedbackCardId`, `authorId`, `content`)
-- [ ] Implement card CRUD with position reordering and column movement
-- [ ] Implement transactional voting with strict limit enforcement and concurrency safety
-- [ ] Implement strict Anonymous Feedback protection (scrub author details from participant payloads)
-- [ ] Implement Comments CRUD per feedback card
-- [ ] Build Frontend Kanban Retrospective Board:
-  - Multi-column drag-and-drop layout
-  - Add / edit / delete feedback cards with confirmation
-  - Card vote button with remaining votes counter & limit enforcement
-  - Card comment drawer / modal
-  - Anonymous mode visual indicators
-  - Mobile responsive horizontal scroll
-- [ ] Automated tests for duplicate voting, limit boundaries, and author scrub
+- [x] Define FeedbackCard schema (`id`, `tenantId`, `retrospectiveId`, `columnId`, `authorId`, `content`, `position`) (**DONE**)
+- [x] Define Vote schema (`id`, `tenantId`, `retrospectiveId`, `feedbackCardId`, `userId`) (**DONE**)
+- [x] Define Comment schema (`id`, `tenantId`, `feedbackCardId`, `authorId`, `content`) (**DONE**)
+- [x] Implement card CRUD with position reordering and column movement (**DONE**)
+- [x] Implement transactional voting with strict limit enforcement and concurrency safety (**DONE**)
+- [x] Implement strict Anonymous Feedback protection (scrub author details from participant payloads) (**DONE**)
+- [x] Implement Comments CRUD per feedback card (**DONE**)
+- [x] Build Frontend Kanban Retrospective Board:
+  - Multi-column drag-and-drop layout (**DONE**)
+  - Add / edit / delete feedback cards with confirmation (**DONE**)
+  - Card vote button with remaining votes counter & limit enforcement (**DONE**)
+  - Card comment drawer / modal (**DONE**)
+  - Anonymous mode visual indicators (**DONE**)
+  - Mobile responsive horizontal scroll (**DONE**)
+- [x] Automated tests for duplicate voting, limit boundaries, and author scrub (**DONE**)
 - **Target Commit**: `feat(board): implement feedback, voting, and comments`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 
