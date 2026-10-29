@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import { pinoHttp } from 'pino-http';
 import { pino } from 'pino';
 import { env } from './config/env.js';
+import { authRouter } from './modules/auth/auth.routes.js';
 
 export const logger = pino({
   level: env.NODE_ENV === 'test' ? 'silent' : 'info',
@@ -48,6 +49,9 @@ const healthHandler = (_req: Request, res: Response) => {
 
 app.get('/health', healthHandler);
 app.get('/api/v1/health', healthHandler);
+
+// API Routes
+app.use('/api/v1/auth', authRouter);
 
 // 404 Handler
 app.use((req: Request, res: Response) => {

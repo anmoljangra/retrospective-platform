@@ -35,20 +35,20 @@
 ---
 
 ## Phase 2: Authentication & Session Management
-- [ ] Define User schema in Drizzle ORM (`id`, `name`, `email`, `passwordHash`, timestamps)
-- [ ] Define RefreshSession schema with family tracking, token hash, rotation, and revocation
-- [ ] Implement password hashing with bcrypt/argon2
-- [ ] Implement short-lived JWT access tokens + HTTP-only refresh cookies
-- [ ] Build Auth Service: register, login, refresh token rotation, logout, me endpoint
-- [ ] Implement auth middleware (`authenticateUser`) with strict token validation
-- [ ] Implement input validation schemas with Zod (register, login, refresh)
-- [ ] Build Frontend Auth UI:
-  - Register page (`/register`) with form validation & error feedback
-  - Login page (`/login`) with session management
-  - Auth context and Protected Route wrapper
-- [ ] Implement automated backend tests for auth (registration, duplicate rejection, invalid credentials, refresh rotation, logout)
+- [x] Define User schema in Drizzle ORM (`id`, `name`, `email`, `passwordHash`, timestamps) (**DONE**)
+- [x] Define RefreshSession schema with family tracking, token hash, rotation, and revocation (**DONE**)
+- [x] Implement password hashing with bcrypt/argon2 (**DONE**)
+- [x] Implement short-lived JWT access tokens + HTTP-only refresh cookies (**DONE**)
+- [x] Build Auth Service: register, login, refresh token rotation, logout, me endpoint (**DONE**)
+- [x] Implement auth middleware (`authenticateUser`) with strict token validation (**DONE**)
+- [x] Implement input validation schemas with Zod (register, login, refresh) (**DONE**)
+- [x] Build Frontend Auth UI:
+  - Register page (`/register`) with form validation & error feedback (**DONE**)
+  - Login page (`/login`) with session management (**DONE**)
+  - Auth context and Protected Route wrapper (**DONE**)
+- [x] Implement automated backend tests for auth (registration, duplicate rejection, invalid credentials, refresh rotation, logout) (**DONE**)
 - **Target Commit**: `feat(auth): implement authentication and session management`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 

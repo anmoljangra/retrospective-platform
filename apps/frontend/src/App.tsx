@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Sparkles, Layers, ShieldCheck, Users } from 'lucide-react';
+import { AuthProvider } from './features/auth/AuthContext';
+import { LoginPage } from './features/auth/LoginPage';
+import { RegisterPage } from './features/auth/RegisterPage';
+import { ProtectedRoute } from './components/layout/ProtectedRoute';
 
 function LandingPage() {
   return (
@@ -90,13 +94,34 @@ function LandingPage() {
   );
 }
 
+function DashboardPlaceholder() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-white p-8">
+      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <p className="text-slate-400 mt-2">Welcome to your RetroSpace workspace.</p>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="*" element={<LandingPage />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPlaceholder />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
