@@ -8,6 +8,8 @@ import { ProtectedRoute } from './components/layout/ProtectedRoute';
 import { AppLayout } from './components/layout/AppLayout';
 import { OrganizationSettingsPage } from './features/tenants/OrganizationSettingsPage';
 import { AcceptInvitationPage } from './features/tenants/AcceptInvitationPage';
+import { TeamsPage } from './features/teams/TeamsPage';
+import { TeamDetailPage } from './features/teams/TeamDetailPage';
 
 function LandingPage() {
   return (
@@ -125,6 +127,8 @@ export default function App() {
             }
           >
             <Route path="/dashboard" element={<DashboardPlaceholder />} />
+            <Route path="/teams" element={<TeamsPage />} />
+            <Route path="/teams/:teamId" element={<TeamDetailPage />} />
             <Route path="/settings/organization" element={<OrganizationSettingsPage />} />
           </Route>
 

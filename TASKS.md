@@ -76,17 +76,17 @@
 ---
 
 ## Phase 4: Team Management
-- [ ] Define Team and TeamMembership schemas (`FACILITATOR`, `MEMBER`) with tenant integrity
-- [ ] Implement Team Service & Routes under `/api/v1/tenants/:tenantId/teams`
-- [ ] Validate team membership belongs strictly to current tenant members
-- [ ] Implement team role-based authorization (`requireTeamRole`)
-- [ ] Build Frontend Teams UI:
-  - Team list & team creation modal
-  - Team details & member management (facilitator assignment)
-  - Team retrospective overview
-- [ ] Automated tests for team authorization and isolation
+- [x] Define Team and TeamMembership schemas (`FACILITATOR`, `MEMBER`) with tenant integrity (**DONE**)
+- [x] Implement Team Service & Routes under `/api/v1/tenants/:tenantId/teams` (**DONE**)
+- [x] Validate team membership belongs strictly to current tenant members (**DONE**)
+- [x] Implement team role-based authorization (`requireTeamRole`) (**DONE**)
+- [x] Build Frontend Teams UI:
+  - Team list & team creation modal (**DONE**)
+  - Team details & member management (facilitator assignment) (**DONE**)
+  - Team retrospective overview (**DONE**)
+- [x] Automated tests for team authorization and isolation (**DONE**)
 - **Target Commit**: `feat(teams): implement team management`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 

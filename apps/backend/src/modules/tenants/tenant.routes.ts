@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { tenantController } from './tenant.controller.js';
+import { teamRouter } from '../teams/team.routes.js';
 import { authenticateUser } from '../../middlewares/auth.js';
 import { requireTenant, requireTenantRole } from '../../middlewares/tenant.js';
 import { TenantRole } from '@retrospace/shared';
@@ -10,6 +11,9 @@ export const invitationRouter = Router();
 // Tenant collections
 tenantRouter.post('/', authenticateUser, tenantController.createTenant);
 tenantRouter.get('/', authenticateUser, tenantController.listUserTenants);
+
+// Mount Teams sub-router
+tenantRouter.use('/:tenantId/teams', teamRouter);
 
 // Tenant-scoped operations
 tenantRouter.get('/:tenantId', authenticateUser, requireTenant, tenantController.getTenant);
