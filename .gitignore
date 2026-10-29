@@ -55,6 +55,7 @@ temp
 .cache
 .eslintcache
 .vite
+*.tsbuildinfo
 
 # Database
 *.sqlite

@@ -21,16 +21,16 @@
 ---
 
 ## Phase 1: Development Foundation & Docker Environment
-- [ ] Configure PostgreSQL with custom initialization / health checks
-- [ ] Create multi-stage `apps/backend/Dockerfile` and `apps/frontend/Dockerfile`
-- [ ] Create root `docker-compose.yml` with health checks, named persistent volumes, and non-root users
-- [ ] Define `.dockerignore` for frontend and backend
-- [ ] Set up `.env.example` configurations across root, backend, and frontend
-- [ ] Implement backend health check endpoint (`/api/v1/health`)
-- [ ] Configure Drizzle ORM database connection and migration runner
-- [ ] Verify Docker Compose build, service startup, health checks, and data persistence
+- [x] Configure PostgreSQL with custom initialization / health checks (**DONE**)
+- [x] Create multi-stage `apps/backend/Dockerfile` and `apps/frontend/Dockerfile` (**DONE**)
+- [x] Create root `docker-compose.yml` with health checks, named persistent volumes, and non-root users (**DONE**)
+- [x] Define `.dockerignore` for frontend and backend (**DONE**)
+- [x] Set up `.env.example` configurations across root, backend, and frontend (**DONE**)
+- [x] Implement backend health check endpoint (`/api/v1/health`) (**DONE**)
+- [x] Configure Drizzle ORM database connection and migration runner (**DONE**)
+- [x] Verify Docker Compose build, service startup, health checks, and data persistence (**DONE**)
 - **Target Commit**: `build: add Docker development environment`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 
