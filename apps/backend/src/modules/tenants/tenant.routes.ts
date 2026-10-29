@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { tenantController } from './tenant.controller.js';
 import { teamRouter } from '../teams/team.routes.js';
+import { retrospectiveRouter } from '../retrospectives/retrospective.routes.js';
 import { authenticateUser } from '../../middlewares/auth.js';
 import { requireTenant, requireTenantRole } from '../../middlewares/tenant.js';
 import { TenantRole } from '@retrospace/shared';
@@ -14,6 +15,7 @@ tenantRouter.get('/', authenticateUser, tenantController.listUserTenants);
 
 // Mount Teams sub-router
 tenantRouter.use('/:tenantId/teams', teamRouter);
+tenantRouter.use('/:tenantId/retrospectives', retrospectiveRouter);
 
 // Tenant-scoped operations
 tenantRouter.get('/:tenantId', authenticateUser, requireTenant, tenantController.getTenant);

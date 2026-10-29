@@ -91,18 +91,18 @@
 ---
 
 ## Phase 5: Retrospective Management & Columns
-- [ ] Define Retrospective schema (`id`, `tenantId`, `teamId`, `title`, `description`, `status`, `template`, `isAnonymous`, `votingLimit`, `startedAt`, `endedAt`, timestamps)
-- [ ] Define RetrospectiveColumn schema (`id`, `tenantId`, `retrospectiveId`, `title`, `description`, `color`, `position`)
-- [ ] Provide default templates ("What went well? / What could be improved? / What should we try next?", "Mad / Sad / Glad", "Start / Stop / Continue")
-- [ ] Implement Retrospective lifecycle state transitions (`DRAFT` -> `ACTIVE` -> `COMPLETED`)
-- [ ] Implement facilitator permissions for column modifications
-- [ ] Build Frontend Retrospective Management:
-  - Create retrospective wizard (team, template, anonymity, voting limit)
-  - Retrospectives list view with status badges and filters
-  - Start / Complete session controls for facilitators
-- [ ] Automated tests for lifecycle transitions and column operations
+- [x] Define Retrospective schema (`id`, `tenantId`, `teamId`, `title`, `description`, `status`, `template`, `isAnonymous`, `votingLimit`, `startedAt`, `endedAt`, timestamps) (**DONE**)
+- [x] Define RetrospectiveColumn schema (`id`, `tenantId`, `retrospectiveId`, `title`, `description`, `color`, `position`) (**DONE**)
+- [x] Provide default templates ("What went well? / What could be improved? / What should we try next?", "Mad / Sad / Glad", "Start / Stop / Continue") (**DONE**)
+- [x] Implement Retrospective lifecycle state transitions (`DRAFT` -> `ACTIVE` -> `COMPLETED`) (**DONE**)
+- [x] Implement facilitator permissions for column modifications (**DONE**)
+- [x] Build Frontend Retrospective Management:
+  - Create retrospective wizard (team, template, anonymity, voting limit) (**DONE**)
+  - Retrospectives list view with status badges and filters (**DONE**)
+  - Start / Complete session controls for facilitators (**DONE**)
+- [x] Automated tests for lifecycle transitions and column operations (**DONE**)
 - **Target Commit**: `feat(retrospectives): implement retrospective management`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 
