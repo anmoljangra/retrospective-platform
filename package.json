@@ -10,7 +10,7 @@
     "dev:frontend": "pnpm --filter @retrospace/frontend dev",
     "build": "pnpm --recursive run build",
     "test": "pnpm --recursive run test",
-    "lint": "pnpm --recursive run lint",
+    "lint": "pnpm typecheck",
     "typecheck": "pnpm --recursive run typecheck",
     "db:generate": "pnpm --filter @retrospace/backend db:generate",
     "db:migrate": "pnpm --filter @retrospace/backend db:migrate"

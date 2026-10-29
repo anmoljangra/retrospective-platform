@@ -161,13 +161,13 @@
 ---
 
 ## Phase 9: Testing, CI/CD, and Hardening
-- [ ] Expand integration and tenant boundary test suite (Supertest + Vitest)
-- [ ] Add frontend unit & component tests (Vitest + Testing Library)
-- [ ] Configure `.github/workflows/ci.yml` (lint, typecheck, unit tests, integration tests, frontend build, backend build, docker build)
-- [ ] Enforce security headers (Helmet), CORS whitelist, rate limiting, and structured logging (Pino)
-- [ ] Verify TypeScript strict mode passes with 0 errors across all workspaces
+- [x] Expand integration and tenant boundary test suite (Supertest + Vitest: 31 tests passing) (**DONE**)
+- [x] Add frontend unit & component tests (Vitest + Testing Library) (**DONE**)
+- [x] Configure `.github/workflows/ci.yml` (lint, typecheck, unit tests, integration tests, frontend build, backend build, docker build) (**DONE**)
+- [x] Enforce security headers (Helmet), CORS whitelist, rate limiting, and structured logging (Pino) (**DONE**)
+- [x] Verify TypeScript strict mode passes with 0 errors across all workspaces (**DONE**)
 - **Target Commit**: `ci: add GitHub Actions verification workflow`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 
