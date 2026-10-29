@@ -11,3 +11,4 @@ export default defineConfig({
     url: process.env.DATABASE_URL || 'postgresql://retrospace:retrospace_local_dev_password@localhost:5432/retrospace',
   },
 });
+

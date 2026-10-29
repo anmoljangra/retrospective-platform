@@ -144,3 +144,4 @@ export function CreateTenantModal({ isOpen, onClose }: CreateTenantModalProps) {
     </div>
   );
 }
+

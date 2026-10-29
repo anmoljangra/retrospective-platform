@@ -46,3 +46,4 @@ teamRouter.delete(
   requireTeamRole([TeamRole.FACILITATOR]),
   teamController.removeTeamMember
 );
+

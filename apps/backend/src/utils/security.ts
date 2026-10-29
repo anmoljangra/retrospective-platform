@@ -39,3 +39,4 @@ export function generateRefreshToken(): { rawToken: string; tokenHash: string } 
   const tokenHash = hashToken(rawToken);
   return { rawToken, tokenHash };
 }
+

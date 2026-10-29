@@ -24,3 +24,4 @@ boardRouter.post('/cards/:cardId/vote', boardController.toggleVote);
 boardRouter.get('/cards/:cardId/comments', boardController.listComments);
 boardRouter.post('/cards/:cardId/comments', boardController.addComment);
 boardRouter.delete('/cards/:cardId/comments/:commentId', boardController.deleteComment);
+

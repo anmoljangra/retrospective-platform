@@ -32,11 +32,10 @@ RUN addgroup --system --gid 1001 nodejs && \
 
 COPY --from=builder /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml /app/.npmrc ./
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/packages/shared ./packages/shared
-COPY --from=builder /app/apps/backend/dist ./apps/backend/dist
-COPY --from=builder /app/apps/backend/package.json ./apps/backend/package.json
-COPY --from=builder /app/apps/backend/drizzle ./apps/backend/drizzle
-COPY --from=builder /app/apps/backend/src/db ./apps/backend/src/db
+COPY --from=builder /app/packages ./packages
+COPY --from=builder /app/apps/backend ./apps/backend
+
+RUN chown -R retrospace:nodejs /app
 
 USER retrospace
 
@@ -46,3 +45,4 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:4000/health || exit 1
 
 CMD ["node", "apps/backend/dist/index.js"]
+

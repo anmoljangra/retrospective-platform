@@ -168,3 +168,4 @@ jobs:
           file: apps/frontend/Dockerfile
           push: false
           tags: retrospace-frontend:ci
+

@@ -24,3 +24,4 @@ describe('Health Endpoints', () => {
     expect(res.body.error.code).toBe('NOT_FOUND');
   });
 });
+

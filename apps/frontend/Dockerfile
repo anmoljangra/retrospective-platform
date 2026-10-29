@@ -36,3 +36,4 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:5173/health || exit 1
 
 CMD ["nginx", "-g", "daemon off;"]
+
