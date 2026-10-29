@@ -128,18 +128,18 @@
 ---
 
 ## Phase 7: Action Items Management
-- [ ] Define ActionItem schema (`id`, `tenantId`, `retrospectiveId`, `feedbackCardId`, `title`, `description`, `status`, `priority`, `assigneeId`, `dueDate`)
-- [ ] Implement conversion from feedback card to action item
-- [ ] Support CRUD and status transitions (`TODO` -> `IN_PROGRESS` -> `DONE`)
-- [ ] Validate cross-tenant assignee protection
-- [ ] Build Frontend Action Items:
-  - Action items board/list with filters (status, priority, assignee, due date)
-  - Quick-convert action button on feedback cards
-  - Dashboard widget for upcoming and overdue action items
-  - Retrospective summary view
-- [ ] Automated tests for action item creation and tenant isolation
+- [x] Define ActionItem schema (`id`, `tenantId`, `retrospectiveId`, `feedbackCardId`, `title`, `description`, `status`, `priority`, `assigneeId`, `dueDate`) (**DONE**)
+- [x] Implement conversion from feedback card to action item (**DONE**)
+- [x] Support CRUD and status transitions (`TODO` -> `IN_PROGRESS` -> `DONE`) (**DONE**)
+- [x] Validate cross-tenant assignee protection (**DONE**)
+- [x] Build Frontend Action Items:
+  - Action items board/list with filters (status, priority, assignee, due date) (**DONE**)
+  - Quick-convert action button on feedback cards (**DONE**)
+  - Dashboard widget for upcoming and overdue action items (**DONE**)
+  - Retrospective summary view (**DONE**)
+- [x] Automated tests for action item creation and tenant isolation (**DONE**)
 - **Target Commit**: `feat(actions): implement action item management`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 

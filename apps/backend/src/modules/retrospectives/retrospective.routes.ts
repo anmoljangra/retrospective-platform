@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { retrospectiveController } from './retrospective.controller.js';
 import { boardRouter } from '../board/board.routes.js';
+import { retroActionItemRouter } from '../actions/action.routes.js';
 import { authenticateUser } from '../../middlewares/auth.js';
 import { requireTenant } from '../../middlewares/tenant.js';
 import { requireRetrospectiveAccess } from '../../middlewares/retrospective.js';
@@ -17,6 +18,7 @@ retrospectiveRouter.get('/', retrospectiveController.listRetrospectives);
 
 // Mount Board sub-router for cards, voting, and comments
 retrospectiveRouter.use('/:retrospectiveId', boardRouter);
+retrospectiveRouter.use('/:retrospectiveId/action-items', retroActionItemRouter);
 
 // Retrospective detail operations
 retrospectiveRouter.get(

@@ -8,6 +8,8 @@ import { ProtectedRoute } from './components/layout/ProtectedRoute';
 import { AppLayout } from './components/layout/AppLayout';
 import { OrganizationSettingsPage } from './features/tenants/OrganizationSettingsPage';
 import { AcceptInvitationPage } from './features/tenants/AcceptInvitationPage';
+import { DashboardPage } from './features/dashboard/DashboardPage';
+import { ActionItemsPage } from './features/actions/ActionItemsPage';
 import { TeamsPage } from './features/teams/TeamsPage';
 import { TeamDetailPage } from './features/teams/TeamDetailPage';
 import { RetrospectivesPage } from './features/retrospectives/RetrospectivesPage';
@@ -102,15 +104,6 @@ function LandingPage() {
   );
 }
 
-function DashboardPlaceholder() {
-  return (
-    <div className="space-y-4">
-      <h1 className="text-2xl font-bold text-white">Dashboard Overview</h1>
-      <p className="text-slate-400 text-sm">Welcome to your team retrospective workspace.</p>
-    </div>
-  );
-}
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -129,12 +122,13 @@ export default function App() {
               </ProtectedRoute>
             }
           >
-            <Route path="/dashboard" element={<DashboardPlaceholder />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/teams" element={<TeamsPage />} />
             <Route path="/teams/:teamId" element={<TeamDetailPage />} />
             <Route path="/retrospectives" element={<RetrospectivesPage />} />
             <Route path="/retrospectives/new" element={<CreateRetrospectivePage />} />
             <Route path="/retrospectives/:retrospectiveId" element={<BoardPage />} />
+            <Route path="/action-items" element={<ActionItemsPage />} />
             <Route path="/settings/organization" element={<OrganizationSettingsPage />} />
           </Route>
 
