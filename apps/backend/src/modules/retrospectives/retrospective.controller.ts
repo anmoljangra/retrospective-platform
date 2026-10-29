@@ -4,7 +4,9 @@ import {
   createRetrospectiveSchema,
   RetrospectiveStatus,
   TeamRole,
+  SOCKET_EVENTS,
 } from '@retrospace/shared';
+import { broadcastToRetro } from '../../realtime/socket.js';
 import { z } from 'zod';
 
 const updateRetrospectiveSchema = z.object({
@@ -132,6 +134,12 @@ export class RetrospectiveController {
         req.params.retrospectiveId
       );
 
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.STATUS_CHANGED,
+        { status: updated.status }
+      );
+
       res.status(200).json({
         success: true,
         data: updated,
@@ -146,6 +154,12 @@ export class RetrospectiveController {
       const updated = await retrospectiveService.completeSession(
         req.tenant!.id,
         req.params.retrospectiveId
+      );
+
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.STATUS_CHANGED,
+        { status: updated.status }
       );
 
       res.status(200).json({

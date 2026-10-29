@@ -6,7 +6,9 @@ import {
   createCommentSchema,
   TeamRole,
   TenantRole,
+  SOCKET_EVENTS,
 } from '@retrospace/shared';
+import { broadcastToRetro } from '../../realtime/socket.js';
 import { z } from 'zod';
 
 const moveCardSchema = z.object({
@@ -51,6 +53,12 @@ export class BoardController {
         req.params.retrospectiveId,
         req.user!.id,
         validation.data
+      );
+
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.CARD_CREATED,
+        card
       );
 
       res.status(201).json({
@@ -121,6 +129,12 @@ export class BoardController {
         validation.data.position
       );
 
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.CARD_MOVED,
+        moved
+      );
+
       res.status(200).json({
         success: true,
         data: moved,
@@ -145,6 +159,12 @@ export class BoardController {
         isFacilitatorOrAdmin
       );
 
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.CARD_DELETED,
+        { id: req.params.cardId }
+      );
+
       res.status(200).json({
         success: true,
         data: { message: 'Card deleted successfully' },
@@ -161,6 +181,12 @@ export class BoardController {
         req.params.retrospectiveId,
         req.params.cardId,
         req.user!.id
+      );
+
+      broadcastToRetro(
+        req.params.retrospectiveId,
+        SOCKET_EVENTS.VOTE_UPDATED,
+        result
       );
 
       res.status(200).json({
@@ -207,6 +233,12 @@ export class BoardController {
         req.params.cardId,
         req.user!.id,
         validation.data
+      );
+
+      broadcastToRetro(
+        comment.retrospectiveId,
+        SOCKET_EVENTS.COMMENT_ADDED,
+        comment
       );
 
       res.status(201).json({

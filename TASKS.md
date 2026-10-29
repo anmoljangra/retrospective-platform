@@ -144,19 +144,19 @@
 ---
 
 ## Phase 8: Real-Time Collaboration (Socket.IO)
-- [ ] Set up Socket.IO server with JWT authentication handshake
-- [ ] Implement room authorization: verify user has tenant membership & retrospective access before joining `retro:${retrospectiveId}`
-- [ ] Broadcast events:
-  - Participant presence (join/leave)
-  - Feedback card created, updated, moved, deleted
-  - Vote cast / removed
-  - Comment added / deleted
-  - Retrospective status changed
-- [ ] Enforce anonymous feedback masking in socket events
-- [ ] Build Frontend Socket integration with TanStack Query cache updates
-- [ ] Test multi-client live synchronization and unauthorized room rejection
+- [x] Set up Socket.IO server with JWT authentication handshake (**DONE**)
+- [x] Implement room authorization: verify user has tenant membership & retrospective access before joining `retro:${retrospectiveId}` (**DONE**)
+- [x] Broadcast events:
+  - Participant presence (join/leave) (**DONE**)
+  - Feedback card created, updated, moved, deleted (**DONE**)
+  - Vote cast / removed (**DONE**)
+  - Comment added / deleted (**DONE**)
+  - Retrospective status changed (**DONE**)
+- [x] Enforce anonymous feedback masking in socket events (**DONE**)
+- [x] Build Frontend Socket integration with live state updates (**DONE**)
+- [x] Test multi-client live synchronization and unauthorized room rejection (**DONE**)
 - **Target Commit**: `feat(realtime): implement secure live collaboration`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 

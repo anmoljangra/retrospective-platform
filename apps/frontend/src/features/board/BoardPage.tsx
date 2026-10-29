@@ -10,6 +10,7 @@ import { useAuth } from '../auth/AuthContext';
 import { apiClient } from '../../lib/api-client';
 import { CardCommentsModal } from './CardCommentsModal';
 import { ConvertToActionModal } from './ConvertToActionModal';
+import { useRetroSocket } from '../../hooks/useRetroSocket';
 import { RetrospectiveStatus, TeamRole, TenantRole } from '@retrospace/shared';
 import {
   Columns3,
@@ -109,6 +110,67 @@ export function BoardPage() {
   useEffect(() => {
     loadBoard();
   }, [activeTenant?.tenantId, retrospectiveId]);
+
+  // Real-time live collaboration synchronization
+  useRetroSocket({
+    retrospectiveId,
+    onCardCreated: (newCard) => {
+      setBoardData((prev) => {
+        if (!prev || prev.cards.some((c) => c.id === newCard.id)) return prev;
+        return {
+          ...prev,
+          cards: [...prev.cards, newCard],
+        };
+      });
+    },
+    onCardMoved: (data) => {
+      setBoardData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          cards: prev.cards.map((c) =>
+            c.id === data.id
+              ? { ...c, columnId: data.columnId, position: data.position }
+              : c
+          ),
+        };
+      });
+    },
+    onCardDeleted: (data) => {
+      setBoardData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          cards: prev.cards.filter((c) => c.id !== data.id),
+        };
+      });
+    },
+    onVoteUpdated: (data) => {
+      setBoardData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          cards: prev.cards.map((c) =>
+            c.id === data.feedbackCardId
+              ? { ...c, voteCount: data.voteCount }
+              : c
+          ),
+        };
+      });
+    },
+    onStatusChanged: (data) => {
+      setBoardData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          retrospective: {
+            ...prev.retrospective,
+            status: data.status,
+          },
+        };
+      });
+    },
+  });
 
   // Handle Drag and Drop
   const handleDragEnd = async (result: DropResult) => {

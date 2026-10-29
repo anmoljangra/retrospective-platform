@@ -2,6 +2,7 @@ import http from 'http';
 import { Server as SocketIOServer } from 'socket.io';
 import { app, logger } from './app.js';
 import { env } from './config/env.js';
+import { setupSocketServer } from './realtime/socket.js';
 
 const server = http.createServer(app);
 
@@ -12,16 +13,12 @@ export const io = new SocketIOServer(server, {
   },
 });
 
-io.on('connection', (socket) => {
-  logger.info({ socketId: socket.id }, 'Socket client connected');
-
-  socket.on('disconnect', () => {
-    logger.info({ socketId: socket.id }, 'Socket client disconnected');
-  });
-});
+setupSocketServer(io);
 
 const port = env.PORT;
 
-server.listen(port, () => {
-  logger.info(`🚀 RetroSpace Backend server listening on port ${port} in ${env.NODE_ENV} mode`);
-});
+if (env.NODE_ENV !== 'test') {
+  server.listen(port, () => {
+    logger.info(`🚀 RetroSpace Backend server listening on port ${port} in ${env.NODE_ENV} mode`);
+  });
+}
