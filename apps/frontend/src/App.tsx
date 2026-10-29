@@ -5,6 +5,9 @@ import { AuthProvider } from './features/auth/AuthContext';
 import { LoginPage } from './features/auth/LoginPage';
 import { RegisterPage } from './features/auth/RegisterPage';
 import { ProtectedRoute } from './components/layout/ProtectedRoute';
+import { AppLayout } from './components/layout/AppLayout';
+import { OrganizationSettingsPage } from './features/tenants/OrganizationSettingsPage';
+import { AcceptInvitationPage } from './features/tenants/AcceptInvitationPage';
 
 function LandingPage() {
   return (
@@ -96,9 +99,9 @@ function LandingPage() {
 
 function DashboardPlaceholder() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-8">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
-      <p className="text-slate-400 mt-2">Welcome to your RetroSpace workspace.</p>
+    <div className="space-y-4">
+      <h1 className="text-2xl font-bold text-white">Dashboard Overview</h1>
+      <p className="text-slate-400 text-sm">Welcome to your team retrospective workspace.</p>
     </div>
   );
 }
@@ -111,14 +114,20 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/invite/:token" element={<AcceptInvitationPage />} />
+
+          {/* Protected Application Area */}
           <Route
-            path="/dashboard"
             element={
               <ProtectedRoute>
-                <DashboardPlaceholder />
+                <AppLayout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route path="/dashboard" element={<DashboardPlaceholder />} />
+            <Route path="/settings/organization" element={<OrganizationSettingsPage />} />
+          </Route>
+
           <Route path="*" element={<LandingPage />} />
         </Routes>
       </AuthProvider>

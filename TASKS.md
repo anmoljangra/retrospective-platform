@@ -53,25 +53,25 @@
 ---
 
 ## Phase 3: Tenant Management & Multi-Tenant Isolation
-- [ ] Define Tenant (`id`, `name`, `slug`, timestamps) and TenantMembership schemas (`OWNER`, `ADMIN`, `MEMBER`)
-- [ ] Define Invitation schema (`tokenHash`, `role`, `expiresAt`, `acceptedAt`)
-- [ ] Ensure tenant creation transactionally provisions owner membership
-- [ ] Implement Tenant resolution and middleware (`requireTenant`, `requireTenantRole`)
-- [ ] Build Tenant Services:
-  - Create organization & unique slug generator
-  - List user organizations & organization switcher
-  - Invite members (secure hashed token, expiration, acceptance)
-  - Manage tenant members (role update, safe removal, prevent removing last owner)
-  - Accept invitation endpoint
-- [ ] Build Frontend Organization Management:
-  - Organization switcher in header/sidebar
-  - Create organization dialog/page
-  - Organization settings & member directory
-  - Invite member dialog & pending invitation list
-  - Invitation acceptance page (`/invite/:token`)
-- [ ] Automated tenant isolation tests (prevent cross-tenant access via manipulated IDs/headers)
+- [x] Define Tenant (`id`, `name`, `slug`, timestamps) and TenantMembership schemas (`OWNER`, `ADMIN`, `MEMBER`) (**DONE**)
+- [x] Define Invitation schema (`tokenHash`, `role`, `expiresAt`, `acceptedAt`) (**DONE**)
+- [x] Ensure tenant creation transactionally provisions owner membership (**DONE**)
+- [x] Implement Tenant resolution and middleware (`requireTenant`, `requireTenantRole`) (**DONE**)
+- [x] Build Tenant Services:
+  - Create organization & unique slug generator (**DONE**)
+  - List user organizations & organization switcher (**DONE**)
+  - Invite members (secure hashed token, expiration, acceptance) (**DONE**)
+  - Manage tenant members (role update, safe removal, prevent removing last owner) (**DONE**)
+  - Accept invitation endpoint (**DONE**)
+- [x] Build Frontend Organization Management:
+  - Organization switcher in header/sidebar (**DONE**)
+  - Create organization dialog/page (**DONE**)
+  - Organization settings & member directory (**DONE**)
+  - Invite member dialog & pending invitation list (**DONE**)
+  - Invitation acceptance page (`/invite/:token`) (**DONE**)
+- [x] Automated tenant isolation tests (prevent cross-tenant access via manipulated IDs/headers) (**DONE**)
 - **Target Commit**: `feat(tenants): implement tenant management and isolation`
-- **Status**: TODO
+- **Status**: DONE
 
 ---
 

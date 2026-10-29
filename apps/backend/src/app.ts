@@ -6,6 +6,7 @@ import { pinoHttp } from 'pino-http';
 import { pino } from 'pino';
 import { env } from './config/env.js';
 import { authRouter } from './modules/auth/auth.routes.js';
+import { tenantRouter, invitationRouter } from './modules/tenants/tenant.routes.js';
 
 export const logger = pino({
   level: env.NODE_ENV === 'test' ? 'silent' : 'info',
@@ -52,6 +53,8 @@ app.get('/api/v1/health', healthHandler);
 
 // API Routes
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/tenants', tenantRouter);
+app.use('/api/v1/invitations', invitationRouter);
 
 // 404 Handler
 app.use((req: Request, res: Response) => {
