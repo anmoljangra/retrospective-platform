@@ -1,0 +1,21 @@
+{
+  "name": "retrospace-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-Tenant Agile Retrospective SaaS Platform",
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "dev:backend": "pnpm --filter @retrospace/backend dev",
+    "dev:frontend": "pnpm --filter @retrospace/frontend dev",
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --recursive run test",
+    "lint": "pnpm --recursive run lint",
+    "typecheck": "pnpm --recursive run typecheck",
+    "db:generate": "pnpm --filter @retrospace/backend db:generate",
+    "db:migrate": "pnpm --filter @retrospace/backend db:migrate"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
